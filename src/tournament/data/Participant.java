@@ -11,4 +11,11 @@ public class Participant {
     public Participant(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Participant{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

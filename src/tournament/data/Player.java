@@ -36,10 +36,9 @@ public class Player extends Participant {
     public void setLevel(byte level) {
         this.level = level;
     }
+
     @Override
     public String toString() {
-        return "Player: " + name +
-                " - Level: " + level +
-                " - Ranking: " + ranking;
+        return super.toString() + "Level: " + level + "Ranking: " + ranking;
     }
 }
