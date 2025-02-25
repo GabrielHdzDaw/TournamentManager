@@ -2,14 +2,16 @@ package tournament.data;
 
 import java.util.Arrays;
 
-public class Team {
+public class Team extends Participant{
     Player[] players;
     String name;
 
-    public Team(Player[] players, String name) {
+    public Team(String name, Player[] players, String name1) {
+        super(name);
         this.players = players;
-        this.name = name;
+        this.name = name1;
     }
+
     public Player[] getPlayers() {
         return players;
     }
