@@ -10,7 +10,7 @@ package tournament.main;
 7. Show all the matches ordered by tournament name
 8. Update the result of the matches pending
 9. Exit*/
-public class Main {
+public class                                                                   Main {
     public static void main(String[] args) {
 
     }
