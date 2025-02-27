@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class MixedTournament extends Tournament{
     String gameMode;
-    public MixedTournament(String name, String associatedGame, double prize, String gameMode) {
+    public MixedTournament(String name, String associatedGame, double prize, String gameMode) throws CustomException {
         super(name, associatedGame, prize);
         setGameMode(gameMode);
     }
