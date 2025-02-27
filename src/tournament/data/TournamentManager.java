@@ -1,8 +1,6 @@
 package tournament.data;
 
 import java.util.Arrays;
-import tournament.comparators.Comparators.PlayerRankingComparator;
-import tournament.comparators.Comparators.TeamRankingComparator;
 
 public class TournamentManager {
     Player[] registeredPlayers;
@@ -51,7 +49,7 @@ public class TournamentManager {
 
     //Shows the players ordered by ranking(from highest to lowest)
     public void playerRanking() {
-        Arrays.sort(registeredPlayers, new PlayerRankingComparator());
+        Arrays.sort(registeredPlayers, (p1, p2) -> Float.compare(p2.getRanking(), p1.getRanking()));
 
         System.out.println("Player Ranking:");
         for (Player p : registeredPlayers) {
@@ -63,7 +61,7 @@ public class TournamentManager {
 
     //Shows the teams ordered by ranking(from highest to lowest)
     public void teamRanking() {
-        Arrays.sort(registeredTeams, new TeamRankingComparator());
+        Arrays.sort(registeredTeams, (t1, t2) -> Double.compare(t2.getAverageRanking(), t1.getAverageRanking()));
 
         System.out.println("Team Ranking:");
         for (Team t : registeredTeams) {
