@@ -3,13 +3,11 @@ package tournament.data;
 import java.util.Scanner;
 
 public class IndividualTournament extends Tournament{
-
-    public IndividualTournament(String name, String associatedName, int prize) {
-        super(name, associatedName, prize);
+    public IndividualTournament(String name, String associatedGame, double prize) {
+        super(name, associatedGame, prize);
     }
-
     @Override
     public String toString() {
-        return super.toString() + " $" + prize;
+        return "Individual tournament - " + super.toString() + " - Prize: " + prize + "€";
     }
 }

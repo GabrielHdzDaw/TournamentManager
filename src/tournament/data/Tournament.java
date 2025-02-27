@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public abstract class Tournament {
     String name;
-    String associatedName;
-    int prize;
-    public Tournament(String name, String associatedName, int prize){
+    String associatedGame;
+    double prize;
+    public Tournament(String name, String associatedName, double prize){
         this.name = name;
-        this.associatedName = associatedName;
+        this.associatedGame = associatedName;
         this.prize = prize;
     }
 
@@ -21,23 +21,23 @@ public abstract class Tournament {
     }
 
     public String getAssociatedName() {
-        return associatedName;
+        return associatedGame;
     }
 
     public void setAssociatedName(String associatedName) {
-        this.associatedName = associatedName;
+        this.associatedGame = associatedName;
     }
 
-    public int getPrize() {
+    public double getPrize() {
         return prize;
     }
 
-    public void setPrize(int prize) {
+    public void setPrize(double prize) {
         this.prize = prize;
     }
 
     @Override
     public String toString() {
-        return name + " (" + associatedName + ")";
+        return name + " (" + associatedGame + ")";
     }
 }

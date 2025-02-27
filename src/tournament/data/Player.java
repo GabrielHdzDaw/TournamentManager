@@ -1,26 +1,12 @@
 package tournament.data;
 
 public class Player extends Participant {
-    byte level;
+    int level;
     float ranking;
 
-    public Player(String name, byte level, float ranking) {
+    public Player(String name, int level, float ranking) {
         super(name);
-        if(level>=1 && level <=100)
-        {
-            this.level = level;
-        }
-        else
-        {
-            if(level<1)
-            {
-                this.level = 1;
-            }
-            else if(level>100)
-            {
-                this.level=100;
-            }
-        }
+        setLevel(level);
         this.ranking = ranking;
     }
 
@@ -30,15 +16,17 @@ public class Player extends Participant {
     public void setRanking(float ranking) {
         this.ranking = ranking;
     }
-    public byte getLevel() {
+    public int getLevel() {
         return level;
     }
-    public void setLevel(byte level) {
+    public void setLevel(int level) {
+        if (level < 1 || level > 100) {
+            throw new IllegalArgumentException("Level must be between 1 and 100.");
+        }
         this.level = level;
     }
-
     @Override
-    public String toString() {
-        return super.toString() + "Level: " + level + "Ranking: " + ranking;
+    public String toString(){
+        return "Player: " + name + " - Level: " + level + " - Ranking: " + ranking;
     }
 }
