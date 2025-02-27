@@ -29,6 +29,15 @@ public class Team extends Participant{
         players[playerCount] = player;
         playerCount++;
     }
+
+    public double getAverageRanking() {
+        if (playerCount == 0) return 0;
+        double totalRanking = 0;
+        for (int i = 0; i < playerCount; i++) {
+            totalRanking += players[i].getRanking();
+        }
+        return totalRanking / playerCount;
+    }
     @Override
     public String toString() {
         String teammates = "";
