@@ -1,3 +1,8 @@
+//eSports Tournament Management System created by:
+// Cruz Calderón Piñol
+// María del Carmen Fructuoso Guerrero
+// Gabriel Hernández Collado
+
 package tournament.main;
 
 import tournament.comparators.MatchTournamentNameComparator;
