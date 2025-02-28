@@ -9,7 +9,14 @@ import tournament.exceptions.CustomException;
 
 import java.util.Scanner;
 import java.util.Arrays;
+
+/**
+ * The main class for the tournament application.
+ */
 public class Main {
+    /**
+     * Displays the main menu options.
+     */
     public static void ShowMenu(){
         System.out.println("1. View available tournaments ordered by name");
         System.out.println("2. View players information ordered by ranking and name");
@@ -23,6 +30,11 @@ public class Main {
         System.out.println("10. Exit");
         System.out.print("Select an option: ");
     }
+    /**
+     * Displays tournaments ordered by name.
+     *
+     * @param tournamentManager the TournamentManager instance
+     */
     public static void viewTournamentOrderedByName(TournamentManager tournamentManager){
         Tournament[] tournaments = tournamentManager.getTournaments();
         Arrays.sort(tournaments, new TournamentNameComparator());
@@ -32,6 +44,11 @@ public class Main {
             System.out.println(t);
         }
     }
+    /**
+     * Displays players ordered by ranking and name.
+     *
+     * @param tournamentManager the TournamentManager instance
+     */
     public static void viewPlayersOrderedByRankingAndName(TournamentManager tournamentManager){
         Player[] players = tournamentManager.getRegisteredPlayers();
         Arrays.sort(players, new PlayerRankingComparator());
@@ -41,6 +58,11 @@ public class Main {
             System.out.println(p);
         }
     }
+    /**
+     * Displays teams ordered by ranking.
+     *
+     * @param tournamentManager the TournamentManager instance
+     */
     public static void viewTeamsOrderedByRanking(TournamentManager tournamentManager){
         Team[] teams = tournamentManager.getRegisteredTeams();
         Arrays.sort(teams, new TeamRankingComparator());
@@ -50,6 +72,13 @@ public class Main {
             System.out.println(t);
         }
     }
+    /**
+     * Adds a new player to a team.
+     *
+     * @param tournamentManager the TournamentManager instance
+     * @param sc the Scanner instance for user input
+     * @throws CustomException if there is an error adding the player
+     */
     public static void addPlayerToTeam(TournamentManager tournamentManager, Scanner sc) throws CustomException {
 
         System.out.print("Enter player name: ");
@@ -95,6 +124,13 @@ public class Main {
             System.out.println("Error. There's no team with that name.");
         }
     }
+    /**
+     * Finds an exact player by name.
+     *
+     * @param tournamentManager the TournamentManager instance
+     * @param sc the Scanner instance for user input
+     * @throws CustomException if the player is not found
+     */
     public static void findPlayerByName(TournamentManager tournamentManager, Scanner sc) throws CustomException {
         System.out.print("Enter player name: ");
         String playerName = sc.nextLine();
@@ -106,6 +142,12 @@ public class Main {
             System.out.println("No player found with that name");
         }
     }
+    /**
+     * Finds players whose names contain the specified text.
+     *
+     * @param tournamentManager the TournamentManager instance
+     * @param sc the Scanner instance for user input
+     */
     public static void findPlayer(TournamentManager tournamentManager, Scanner sc){
         System.out.print("Enter player name: ");
         String playerName = sc.nextLine();
@@ -119,6 +161,12 @@ public class Main {
             }
         }
     }
+    /**
+     * Finds teams whose names contain the specified text.
+     *
+     * @param tournamentManager the TournamentManager instance
+     * @param sc the Scanner instance for user input
+     */
     public static void findTeam(TournamentManager tournamentManager, Scanner sc){
         System.out.print("Enter team name to search: ");
         String teamName = sc.nextLine().toLowerCase();
@@ -131,6 +179,11 @@ public class Main {
             }
         }
     }
+    /**
+     * Displays matches ordered by tournament name.
+     *
+     * @param tournamentManager the TournamentManager instance
+     */
     public static void showMatchesOrderedByTournamentName(TournamentManager tournamentManager){
         Match[] matches = tournamentManager.getMatches();
         Arrays.sort(matches, new MatchTournamentNameComparator());
@@ -140,6 +193,12 @@ public class Main {
             System.out.println(m);
         }
     }
+    /**
+     * Updates the result of a pending match.
+     *
+     * @param tournamentManager the TournamentManager instance
+     * @param sc the Scanner instance for user input
+     */
     public static void updateMatchPendingResult(TournamentManager tournamentManager, Scanner sc){
         Match[] matches = tournamentManager.getMatches();
 
@@ -165,6 +224,12 @@ public class Main {
             System.out.println("Match result updated successfully.");
         }
     }
+    /**
+     * The main method for the tournament application.
+     *
+     * @param args command-line arguments
+     * @throws CustomException if there is an error during execution
+     */
     public static void main(String[] args) throws CustomException {
         Scanner sc = new Scanner(System.in);
         TournamentManager tournamentManager = new TournamentManager();

@@ -3,10 +3,12 @@ package tournament.data;
 import tournament.comparators.PlayerRankingComparator;
 import tournament.comparators.TeamRankingComparator;
 import tournament.exceptions.CustomException;
-
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * Manages tournaments, players, teams, and matches.
+ */
 public class TournamentManager {
     Player[] registeredPlayers;
     Team[] registeredTeams;
@@ -14,6 +16,9 @@ public class TournamentManager {
     Match[] matches;
     Random random;
 
+    /**
+     * Constructs a TournamentManager with default arrays for players, teams, tournaments, and matches.
+     */
     public TournamentManager() {
         registeredPlayers = new Player[10];
         registeredTeams = new Team[5];
@@ -21,21 +26,44 @@ public class TournamentManager {
         matches = new Match[10];
         random = new Random();
     }
+
+    /**
+     * Returns the registered players.
+     *
+     * @return the registered players
+     */
     public Player[] getRegisteredPlayers() {
         return registeredPlayers;
     }
-
+    /**
+     * Returns the registered teams.
+     *
+     * @return the registered teams
+     */
     public Team[] getRegisteredTeams() {
         return registeredTeams;
     }
-
+    /**
+     * Returns the tournaments.
+     *
+     * @return the tournaments
+     */
     public Tournament[] getTournaments() {
         return tournaments;
     }
-
+    /**
+     * Returns the matches.
+     *
+     * @return the matches
+     */
     public Match[] getMatches() {
         return matches;
     }
+    /**
+     * Initializes the TournamentManager with predefined data.
+     *
+     * @throws CustomException if there is an error initializing the data
+     */
     public void initialize() throws  CustomException{
         registeredPlayers[0] = new Player("Wiwi", 80, 2500);
         registeredPlayers[1] = new Player("Mary", 100, 3000);
@@ -80,6 +108,13 @@ public class TournamentManager {
             matches[i] = new Match(tournament, participant1, participant2);
         }
     }
+    /**
+     * Finds a player by their name.
+     *
+     * @param userName the name of the player to find
+     * @return the player with the specified name
+     * @throws CustomException if the player is not found
+     */
     public Player findPlayer(String userName) throws CustomException{
         for (Player p : registeredPlayers) {
             if (p.getName().equals(userName)) {
@@ -88,6 +123,13 @@ public class TournamentManager {
         }
         throw new CustomException("Player not found: " + userName);
     }
+    /**
+     * Finds a team by their name.
+     *
+     * @param teamName the name of the team to find
+     * @return the team with the specified name
+     * @throws CustomException if the team is not found
+     */
     public Team findTeam(String teamName) throws CustomException{
         for (Team t : registeredTeams) {
             if (t.getName().equals(teamName)) {
@@ -96,11 +138,17 @@ public class TournamentManager {
         }
         throw new CustomException("Team not found: " + teamName);
     }
+    /**
+     * Displays all available tournaments.
+     */
     public void showTournaments() {
         for (Tournament t : tournaments) {
                 System.out.println(t);
         }
     }
+    /**
+     * Displays players sorted by ranking.
+     */
     public void playerRanking() {
         Arrays.sort(registeredPlayers, new PlayerRankingComparator());
 
@@ -111,6 +159,9 @@ public class TournamentManager {
             }
         }
     }
+    /**
+     * Displays teams sorted by average ranking.
+     */
     public void teamRanking() {
         Arrays.sort(registeredTeams, new TeamRankingComparator());
 
