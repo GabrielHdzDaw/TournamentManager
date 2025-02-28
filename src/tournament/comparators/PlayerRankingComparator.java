@@ -8,6 +8,12 @@ import tournament.data.Team;
 public class PlayerRankingComparator implements Comparator<Player>{
     @Override
     public int compare(Player p1, Player p2){
-        return Double.compare(p2.getRanking(), p1.getRanking());
+        int result;
+        result = Double.compare(p1.getRanking(), p2.getRanking());
+        if(result == 0)
+        {
+            result = p1.getName().compareTo(p2.getName());
+        }
+        return result;
     }
 }
