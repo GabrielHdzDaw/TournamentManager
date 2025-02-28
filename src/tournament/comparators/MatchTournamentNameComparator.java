@@ -1,7 +1,6 @@
 package tournament.comparators;
 
 import tournament.data.Match;
-import tournament.data.Team;
 
 import java.util.Comparator;
 

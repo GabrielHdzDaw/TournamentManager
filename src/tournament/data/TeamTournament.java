@@ -1,7 +1,5 @@
 package tournament.data;
 
-import java.util.Scanner;
-
 public class TeamTournament extends Tournament{
     int playersPerTeam;
 

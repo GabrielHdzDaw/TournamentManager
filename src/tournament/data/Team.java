@@ -2,8 +2,6 @@ package tournament.data;
 
 import tournament.exceptions.CustomException;
 
-import java.util.Arrays;
-
 public class Team extends Participant{
     static final int MAX_PLAYERS = 5;
     static final int MIN_PLAYERS = 2;

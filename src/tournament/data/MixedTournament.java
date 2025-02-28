@@ -2,8 +2,6 @@ package tournament.data;
 
 import tournament.exceptions.CustomException;
 
-import java.util.Scanner;
-
 public class MixedTournament extends Tournament{
     String gameMode;
     public MixedTournament(String name, String associatedGame, double prize, String gameMode) throws CustomException {

@@ -1,5 +1,7 @@
 package tournament.data;
 
+import tournament.comparators.PlayerRankingComparator;
+import tournament.comparators.TeamRankingComparator;
 import tournament.exceptions.CustomException;
 
 import java.util.Arrays;
@@ -64,7 +66,7 @@ public class TournamentManager {
             registeredTeams[4].addPlayer(registeredPlayers[8]);
             registeredTeams[4].addPlayer(registeredPlayers[9]);
         } catch (CustomException e){
-            System.out.println(e.getMessage());
+            System.out.println("Error entering participants in teams.");
         }
 
         tournaments[0] = new IndividualTournament("Masters Solo", "CS:GO", 1000000);
@@ -100,7 +102,7 @@ public class TournamentManager {
         }
     }
     public void playerRanking() {
-        Arrays.sort(registeredPlayers, (p1, p2) -> Float.compare(p2.getRanking(), p1.getRanking()));
+        Arrays.sort(registeredPlayers, new PlayerRankingComparator());
 
         System.out.println("Player Ranking:");
         for (Player p : registeredPlayers) {
@@ -110,7 +112,7 @@ public class TournamentManager {
         }
     }
     public void teamRanking() {
-        Arrays.sort(registeredTeams, (t1, t2) -> Double.compare(t2.getAverageRanking(), t1.getAverageRanking()));
+        Arrays.sort(registeredTeams, new TeamRankingComparator());
 
         System.out.println("Team Ranking:");
         for (Team t : registeredTeams) {

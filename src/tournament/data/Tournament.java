@@ -1,7 +1,5 @@
 package tournament.data;
 
-import java.util.Scanner;
-
 public abstract class Tournament {
     String name;
     String associatedGame;

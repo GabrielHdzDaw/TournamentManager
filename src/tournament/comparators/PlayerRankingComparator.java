@@ -3,7 +3,6 @@ package tournament.comparators;
 import java.util.Comparator;
 
 import tournament.data.Player;
-import tournament.data.Team;
 
 public class PlayerRankingComparator implements Comparator<Player>{
     @Override
