@@ -13,6 +13,12 @@ public class Match {
         this.participant1=participant1;
         this.participant2=participant2;
     }
+    public Tournament getTournament() {
+        return tournament;
+    }
+    public String getResult() {
+        return result;
+    }
     public void setResult(String result) {
         this.result = result;
     }

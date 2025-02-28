@@ -30,9 +30,9 @@ public class Team extends Participant{
         playerCount++;
     }
 
-    public double getAverageRanking() {
+    public float getAverageRanking() {
         if (playerCount == 0) return 0;
-        double totalRanking = 0;
+        float totalRanking = 0;
         for (int i = 0; i < playerCount; i++) {
             totalRanking += players[i].getRanking();
         }
@@ -44,8 +44,6 @@ public class Team extends Participant{
         for(Player p:players) {
             teammates += " " + p;
         }
-        return "Team" + name +
-                " - Members:" + players.length + "/5 " +
-                teammates;
+        return name + " - Members:" + players.length + "/5 " + teammates;
     }
 }
